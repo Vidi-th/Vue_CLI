@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <!-- <ol>
-        <li>
+    <ol>
+        <li v-for-key ="(todo,index) in todoList">
             {{todo}}
         </li>
-    </ol> -->
+    </ol>
     <input type="text" v-model="message">
     <div>{{message}}</div>
     <button v-on:click ="tambahkan()">Tambahkan!</button>
@@ -14,8 +14,11 @@
 
 <script>
 
+
 export default {
   name: 'App',
+  components:{
+  },
   data(){
     return{
       message : " ",
