@@ -1,13 +1,33 @@
 <template>
   <div id="app">
+    <!-- <ol>
+        <li>
+            {{todo}}
+        </li>
+    </ol> -->
+    <input type="text" v-model="message">
+    <div>{{message}}</div>
+    <button v-on:click ="tambahkan()">Tambahkan!</button>
+    <div v-if="todoList.length >=4">Hebat!</div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
+  data(){
+    return{
+      message : " ",
+      todoList : []
+    }
+  },
+  methods:{
+      tambahkan(){
+          this.todoList.push(this.message);
+          this.message="";
+      }
+  }
 }
 </script>
 
