@@ -1,8 +1,9 @@
 <template>
 <div>
   <ol>
-      <li v-for ="(todo) in todoList" v-bind:key=todo>
+      <li v-for ="(todo, index) in todoList" v-bind:key=todo>
           {{todo}}
+          <button @click="hapus(index)" class="hapus">Delete</button>
       </li>
   </ol>
   <div class="form">
@@ -29,6 +30,9 @@
       tambahkan(){
           this.todoList.push(this.message);
           this.message="";
+      },
+      hapus(index){
+        this.todoList.splice(index,1)
       }
   }
 }
