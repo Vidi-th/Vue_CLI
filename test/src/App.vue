@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <ol>
-        <li v-for-key ="(todo,index) in todoList">
+        <li v-for-key ="(todo,index) in todoList" v-bind:key=todo>
             {{todo}}
         </li>
     </ol>
@@ -13,11 +13,12 @@
 </template>
 
 <script>
-
+// import list from './components/list.vue'
 
 export default {
   name: 'App',
   components:{
+
   },
   data(){
     return{

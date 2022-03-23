@@ -1,24 +1,27 @@
-
 <template>
+<div>
   <ol>
-      <li v-for ="(todo,index) in todoList" v-bind=todo>
+      <li v-for ="(todo) in todoList" v-bind:key=todo>
           {{todo}}
       </li>
   </ol>
-  <input type="text" v-model="message">
+  <div class="form">
+    <input type="text" v-model="message">
+    <button v-on:click ="tambahkan()">Tambahkan!</button>
+  </div>
   <div>{{message}}</div>
-  <button v-on:click ="tambahkan()">Tambahkan!</button>
   <div v-if="todoList.length >=4">Hebat!</div>
+</div>  
 </template>
 
 <script>
   export default {
-  name: 'App',
-  components:{
+  name: 'TodoList',
+  props: {
+      message:String
   },
   data(){
     return{
-      message : " ",
       todoList : []
     }
   },
@@ -29,8 +32,20 @@
       }
   }
 }
+
 </script>
 
 <style>
+.form{
+    display: flex;
+}
 
+button{
+    margin-right: auto;
+    margin-left: 10px;
+}
+
+input{
+    flex:1;
+}
 </style>
