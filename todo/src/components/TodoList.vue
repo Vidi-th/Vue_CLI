@@ -2,9 +2,9 @@
 <div>
   <ol>
       <todo-list-item
-      v-for="(Todo, index) in todoList"
+      v-for="(Data, index) in todoList"
       :key="index"
-      :todo="Todo"
+      :todo="Data"
       :index="index"
       @edit-list-baru="editTodoTask"
       @hapus-todo="hapusTodo"
@@ -30,14 +30,12 @@
   data(){
     return{
       message : "",
-      Todo: "",
       todoList : [],
       index: ""
     };
   },
   methods:{    
       submitTodo() {
-      console.log(this.Todo);
       this.todoList.push({ todoList: this.message, isEdit: 0 });
       this.message = "";
       },
@@ -46,8 +44,14 @@
         this.todoList.splice(index, 1);
       },
       
-      editTodoTaks(index, inputEdit) {
-        this.todoList[index] = inputEdit;
+      editTodoTask(index, inputEdit) {
+        console.log(inputEdit);
+        console.log(index);
+        // this.todoList[index] = inputEdit;
+        this.todoList[index] = {todoList: inputEdit, isEdit: 0};
+        this.todoList[index].map({todoList: inputEdit, isEdit: 0}){
+          return this.todoList;
+        });
       },
     },
   };
