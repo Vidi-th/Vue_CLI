@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Title> Judul</Title>
-    <todo-list></todo-list>
+    <todo-list/>
   </div>
 </template>
 
