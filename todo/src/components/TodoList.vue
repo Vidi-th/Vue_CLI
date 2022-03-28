@@ -12,7 +12,7 @@
   </ol>
   <div class="form">
     <input type="text" v-model="message">
-    <button v-on:click ="submitTodo()">Tambahkan!</button>
+    <button @click ="submitTodo()">Tambahkan!</button>
   </div>
   <!-- <div>{{message}}</div> -->
   <div v-if="todoList.length >=4">Hebat!</div>
@@ -48,10 +48,9 @@
         console.log(inputEdit);
         console.log(index);
         // this.todoList[index] = inputEdit;
-        this.todoList[index] = {todoList: inputEdit, isEdit: 0};
-        this.todoList[index].map({todoList: inputEdit, isEdit: 0}){
-          return this.todoList;
-        });
+        this.todoList[index] = {todoList: inputEdit, isEdit: 0}
+        this.todoList.map(x => ({value:x}));
+        console.log(this.todoList);
       },
     },
   };
