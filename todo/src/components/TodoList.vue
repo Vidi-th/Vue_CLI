@@ -48,10 +48,8 @@
         console.log(inputEdit);
         console.log(index);
         // this.todoList[index] = inputEdit;
-        this.todoList[index] = {todoList: inputEdit, isEdit: 0};
-        this.todoList[index].map({todoList: inputEdit, isEdit: 0}){
-          return this.todoList;
-        });
+        this.todoList[index].todoList = inputEdit;
+        
       },
     },
   };
