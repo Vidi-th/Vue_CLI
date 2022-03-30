@@ -48,14 +48,7 @@
         console.log(inputEdit);
         console.log(index);
         // this.todoList[index] = inputEdit;
-<<<<<<< HEAD
         this.todoList[index].todoList = inputEdit;
-        
-=======
-        this.todoList[index] = {todoList: inputEdit, isEdit: 0}
-        this.todoList.map(x => ({value:x}));
-        console.log(this.todoList);
->>>>>>> c239086e46a2c597b7e85fbe8f52f490488bf2e0
       },
     },
   };
