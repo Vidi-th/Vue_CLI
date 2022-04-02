@@ -2,7 +2,7 @@
     <div>
     <li>
         <label v-if="!editMode">
-            {{ todo.todoList }}
+            {{ todo.todoItem }}
         </label>
         <label v-if="editMode">
             <input v-model="inputEdit" />
@@ -16,21 +16,13 @@
 
 <script>
 export default {
-    name: "TodoListItem",
+  name: "TodoListItem",
   data() {
     return {
       inputEdit: "",
       inputEdited: "",
       editMode: false,
     };
-  },
-  mounted() {
-    this.inputEdited = this.todo.todolist;
-  },
-  watch: {
-    todo(value) {
-      this.inputEdited = value.todolist;
-    },
   },
   props: {
     todo: Object,
@@ -41,16 +33,18 @@ export default {
       this.$emit("hapus-todo", index);
     },
 
-    editList(index) {
-       this.$emit("editTodo", index);
+    editList() {
        this.editMode = !this.editMode;
     },
 
     editListBaru(index) {
       this.$emit("edit-list-baru", index, this.inputEdit);
-      this.editList(index);
+      this.editList();
     },
   },
+  computed:{
+    
+  }
 };
 </script>
 

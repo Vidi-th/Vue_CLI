@@ -2,7 +2,7 @@
 <div>
   <ol>
       <todo-list-item
-      v-for="(Data, index) in todoList"
+      v-for="(Data, index) in todoFromStore"
       :key="index"
       :todo="Data"
       :index="index"
@@ -12,10 +12,9 @@
   </ol>
   <div class="form">
     <input type="text" v-model="message">
-    <button @click ="submitTodo()">Tambahkan!</button>
+    <button @click ="submitTodo">Tambahkan!</button>
   </div>
-  <!-- <div>{{message}}</div> -->
-  <div v-if="todoList.length >=4">Hebat!</div>
+  <div v-if="showHebat">Hebat!</div>
 </div>  
 </template>
 
@@ -30,29 +29,31 @@
   data(){
     return{
       message : "",
-      todoList : [],
-      index: ""
     };
   },
   methods:{    
-      submitTodo() {
-      this.todoList.push({ todoList: this.message, isEdit: 0 });
-      this.message = "";
-      },
-      
-      hapusTodo(index) {
-        this.todoList.splice(index, 1);
-      },
-      
-      editTodoTask(index, inputEdit) {
-        console.log(inputEdit);
-        console.log(index);
-        // this.todoList[index] = inputEdit;
-        this.todoList[index] = {todoList: inputEdit, isEdit: 0}
-        this.todoList.map(x => ({value:x}));
-        console.log(this.todoList);
-      },
+    submitTodo() {
+    this.$store.commit('addTodo', this.message);
+    this.message = "";
     },
+    
+    hapusTodo(index) {
+      this.$store.commit('deleteTodo', index);
+    },
+    
+    editTodoTask(index, inputEdit) {
+      this.$store.commit('setOrder', index);
+      this.$store.commit('editTodo', inputEdit);
+    },
+  },
+  computed:{
+    showHebat: function(){
+      return this.$store.state.todoList.length >=4;
+    },
+    todoFromStore(){
+      return this.$store.state.todoList;
+    },
+  }
   };
 
 </script>
