@@ -10,10 +10,8 @@ import Title from '@/components/Title.vue'
 import TodoList from '@/components/TodoList.vue'
 
 export default {
-  components: { TodoList, Title },
-    setup() {
-        
-    },
+    components: { TodoList, Title },
+    
 }
 </script>
 

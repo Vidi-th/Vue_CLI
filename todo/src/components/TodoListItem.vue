@@ -2,7 +2,9 @@
     <div>
     <li>
         <label v-if="!editMode">
+          <router-link :to="{ name: 'Detail', params: { Uid: todo.id } }">
             {{ todo.todoItem }}
+          </router-link>
         </label>
         <label v-if="editMode">
             <input v-model="inputEdit" />

@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Todo from "@/views/Todo.vue"
 import Detail from "@/views/Detail.vue"
+import Contact from "@/views/Contact.vue"
 
 Vue.use(VueRouter);
 
@@ -12,9 +13,14 @@ const routes = [
         component: Todo,
     },
     {
-        path : "/Detail",
+        path : "/Detail/:Uid",
         name : "Detail",
         component : Detail,
+    },
+    {
+        path : "/Contact",
+        name : "Contact",
+        component : Contact,
     },
 ];
 

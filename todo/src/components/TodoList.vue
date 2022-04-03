@@ -33,7 +33,7 @@
   },
   methods:{    
     submitTodo() {
-    this.$store.commit('addTodo', this.message);
+    this.$store.dispatch('addTodoList', this.message);
     this.message = "";
     },
     
