@@ -1,37 +1,17 @@
 <template>
   <div id="app">
-    <ol>
-        <li v-for-key ="(todo,index) in todoList" v-bind:key=todo>
-            {{todo}}
-        </li>
-    </ol>
-    <input type="text" v-model="message">
-    <div>{{message}}</div>
-    <button v-on:click ="tambahkan()">Tambahkan!</button>
-    <div v-if="todoList.length >=4">Hebat!</div>
+    <list/>
   </div>
 </template>
 
 <script>
-// import list from './components/list.vue'
+import list from '@/components/List.vue'
 
 export default {
   name: 'App',
   components:{
-
+    list
   },
-  data(){
-    return{
-      message : " ",
-      todoList : []
-    }
-  },
-  methods:{
-      tambahkan(){
-          this.todoList.push(this.message);
-          this.message="";
-      }
-  }
 }
 </script>
 
@@ -40,7 +20,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
   margin-top: 60px;
 }
